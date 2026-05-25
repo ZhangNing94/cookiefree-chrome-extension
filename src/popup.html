@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>CookieFree</title>
+  <link rel="stylesheet" href="popup.css">
+</head>
+<body>
+  <!-- Header -->
+  <div class="header">
+    <h1 class="logo"><span class="logo-icon">🧹</span> CookieFree</h1>
+    <p class="subtitle">Your privacy, one click away</p>
+  </div>
+
+  <div class="view" id="mainView">
+    <!-- One-Click Clean -->
+    <div class="section">
+      <h2>Quick Clean</h2>
+      <div class="quick-btns">
+        <button class="clean-btn" data-time="hour">
+          <span class="btn-icon">⏰</span>
+          <span class="btn-label">Last Hour</span>
+        </button>
+        <button class="clean-btn" data-time="day">
+          <span class="btn-icon">📅</span>
+          <span class="btn-label">Last Day</span>
+        </button>
+        <button class="clean-btn" data-time="week">
+          <span class="btn-icon">📆</span>
+          <span class="btn-label">Last Week</span>
+        </button>
+        <button class="clean-btn danger" data-time="all">
+          <span class="btn-icon">🔥</span>
+          <span class="btn-label">All Time</span>
+        </button>
+      </div>
+    </div>
+
+    <!-- What to clean -->
+    <div class="section">
+      <h2>What to Clean</h2>
+      <div class="checkbox-list">
+        <label class="checkbox-row">
+          <input type="checkbox" id="chkCookies" checked>
+          <span>Cookies</span>
+        </label>
+        <label class="checkbox-row">
+          <input type="checkbox" id="chkCache" checked>
+          <span>Cache</span>
+        </label>
+        <label class="checkbox-row">
+          <input type="checkbox" id="chkHistory" checked>
+          <span>Browsing History</span>
+        </label>
+        <label class="checkbox-row">
+          <input type="checkbox" id="chkDownloads">
+          <span>Download History</span>
+        </label>
+        <label class="checkbox-row">
+          <input type="checkbox" id="chkLocalStorage">
+          <span class="warn">LocalStorage ⚠️</span>
+        </label>
+      </div>
+    </div>
+
+    <!-- Storage info -->
+    <div class="section storage-info">
+      <h2>Storage</h2>
+      <div class="storage-grid">
+        <div class="storage-item">
+          <span class="storage-value" id="cookieCount">-</span>
+          <span class="storage-label">Cookies</span>
+        </div>
+        <div class="storage-item">
+          <span class="storage-value" id="cleanCount">-</span>
+          <span class="storage-label">Cleans</span>
+        </div>
+        <div class="storage-item">
+          <span class="storage-value" id="estSize">-</span>
+          <span class="storage-label">Est. Size</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Status -->
+    <div class="status" id="status">Ready</div>
+  </div>
+
+  <!-- Whitelist View -->
+  <div class="view hidden" id="whitelistView">
+    <div class="section">
+      <h2>Cookie Whitelist</h2>
+      <p class="hint">Cookies from these domains won't be cleared</p>
+      <div class="add-domain">
+        <input type="text" id="domainInput" placeholder="example.com">
+        <button class="btn-sm" id="addDomainBtn">Add</button>
+      </div>
+      <ul class="domain-list" id="domainList"></ul>
+      <button class="btn-back" id="whitelistBackBtn">Back</button>
+    </div>
+  </div>
+
+  <!-- Auto Clean Settings -->
+  <div class="view hidden" id="autoView">
+    <div class="section">
+      <h2>Auto Clean</h2>
+      <label class="toggle-row">
+        <span>Enable auto cleaning</span>
+        <input type="checkbox" id="autoCleanCheck">
+      </label>
+      <div class="form-group">
+        <label>Interval (minutes)</label>
+        <input type="number" id="autoInterval" min="5" max="1440" value="60">
+      </div>
+      <button class="btn-back" id="autoBackBtn">Back</button>
+    </div>
+  </div>
+
+  <!-- Nav -->
+  <div class="nav-bar">
+    <button class="nav-btn active" data-view="main">🧹 Clean</button>
+    <button class="nav-btn" data-view="whitelist">⭐ Whitelist</button>
+    <button class="nav-btn" data-view="auto">⏱️ Auto</button>
+  </div>
+
+  <script src="popup.js"></script>
+</body>
+</html>
